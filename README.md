@@ -35,3 +35,8 @@ _Note_: the resource will not be created updated or deleted from their server bu
 4. A user can add an item in the list, logout and come back anytime to see all of his/her todo items
 5. A task's state can be changed to "completed" or "pending".
 6. Logout button removes the currentUser item from localStorage.
+
+DISCLAIMER -
+The approach taken in the app not feasible for enterprise applications. It's NOT a good idea to store user's data inside the application itself for many reasons. JSONPlaceholder provides this option of creating our own fake API and I just made use of it.
+But one could make some quick modifications in the code and make it scalable.
+For larger and complex applications, it's inevitable to a state management library like Vuex which Vue offers https://github.com/vuejs/vuex.
