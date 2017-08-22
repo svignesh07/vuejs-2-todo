@@ -15,13 +15,13 @@
             <div class="card new_task_card absolute" v-bind:class="{ peep: peep, show: show }">
               <div class="card-content">
                 <div class="input-field">
-                  <input id="new_task" type="text" class="validate" v-model="task.title" @focus="!hideNoTaskError()">
+                  <input id="new_task" type="text" v-model="task.title" @focus="!hideNoTaskError()">
                   <label for="new_task">Add new</label>
                 </div>
                 <span class="notask-error red-text hide">
                   <i class="material-icons">error_outline</i>Enter Task
                 </span>
-                <input type="submit" class="waves-effect btn-flat right noPadding blue-text" value="Add">
+                <input type="submit" class="waves-effect btn-flat right noPadding blue-text" value="Add" v-bind:class="{'disabled': !this.task.title}">
                 <input type="button" class="waves-effect btn-flat right noPadding cancel-button" v-on:click="show=!show" value="Cancel">
                 <br>
               </div>
@@ -103,6 +103,7 @@ export default {
         this.$http.post(`http://localhost:3000/tasks`, newtask).then(response => {
           this.show = false
           this.fetchTasks()
+          this.task.title = ''
         })
       }
     },
@@ -120,7 +121,14 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+  /* Variables */
+  $sky-blue: #33bdf6;
+  $dark-text: #263d52;
+  $light-text: #8b9cab;
+  $light-border: #eaeff2;
+  $light-background: #f4f7f9;
+
 
   #tasks.overlay {
     &::after {
@@ -133,6 +141,15 @@ export default {
       position: fixed;
       overflow: hidden;
     }
+  }
+
+  .secondary-bg {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    animation: fadeIn 1.5s linear;
   }
 
   .logout-button {
@@ -209,8 +226,8 @@ export default {
   /* Card Style */
 
   .task-card {
-    background-color: #f4f7f9;
-    border: solid 1px #eaeff2;
+    background-color: $light-background;
+    border: solid 1px $light-border;
     box-shadow: none;
     outline: none;
     .card-content {
@@ -218,36 +235,24 @@ export default {
       padding-top: 10px;
       padding-right: 0;
       p {
-        color: #8b9cab;
+        color: $light-text;
         margin-right: 1em;
       }
     }
     &.completed {
-      background-color: #f4f7f9;
-      border: solid 1px #eaeff2;
-      box-shadow: none;
-      border-left: 3px solid #33bdf6;
+      border-left: 3px solid $sky-blue;
       .card-content {
         p {
-          color: #263d52;
+          color: $dark-text;
         }
       }
     }
   }
 
-  .secondary-bg {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: -1;
-    animation: fadeIn 1.5s linear;
-  }
-
   .notask-error {
     display: flex;
     position: absolute;
-    right: 20px;
+    right: 25px;
     top: 40%;
   }
 

@@ -17,7 +17,7 @@
                 <span class="username-error red-text hide">
                   <i class="material-icons">error_outline</i>Invalid username
                 </span>
-              <input type="submit" class="btn-flat right blue-text noPadding" value="SIGN IN">
+              <input type="submit" class="btn-flat right blue-text noPadding" value="SIGN IN" v-bind:class="{'disabled': !this.username}">
               <br>
             </div>
           </form>
@@ -91,9 +91,8 @@ export default {
   .username-error {
     display: flex;
     position: absolute;
-    right: 20px;
-    top: 40%;
+    right: 25px;
+    top: 38%;
   }
-
 
 </style>
