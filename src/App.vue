@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition name="slide" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -11,7 +13,9 @@ export default {
 </script>
 
 <style>
+  @import './assets/stylesheets/animation.scss';
   @import './assets/stylesheets/common.scss';
+
   * {
     outline: none;
   }

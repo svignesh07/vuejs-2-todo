@@ -1,0 +1,47 @@
+@keyframes slideInRight {
+  0% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUpTop {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.slide-enter-active {
+  animation: slide-in 600ms forwards;
+}
+
+.slide-leave-active {
+  animation: slide-out 600ms forwards;
+}
+
+@keyframes slide-in {
+  from {
+      transform: translateX(50%);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+      transform: translateX(0);
+      opacity: 1;
+  }
+  to {
+      transform: translateX(-50%);
+      opacity: 0;
+  }
+}

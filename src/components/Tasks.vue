@@ -1,5 +1,6 @@
 <template>
   <div id="tasks" v-bind:class="{ overlay: show }">
+    <img class="secondary-bg" src="../assets/images/lightgraybg.png" alt="secondary-bg">
     <div class="row">
       <div class="col offset-m2 m8">
         <div class="header">
@@ -44,7 +45,7 @@
                 </div>
               </div>
             </div>
-            <h4 class="center-align" v-else>No tasks pending :-)</h4>
+            <h5 class="center-align hide" v-else>No pending tasks</h5>
           </div>
         </div>
       </div>
@@ -115,112 +116,128 @@ export default {
 
 <style lang="scss">
 
-#tasks.overlay {
-  &::after {
-    content: '';
-    background: rgba(0,0,0,0.7);
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    overflow: hidden;
-  }
-}
-
-.logout-button {
-  z-index: 0;
-  margin-left: 1em;
-}
-.cancel-button {
-  margin-right: 2em;
-}
-
-.header {
-  p {
-    font-size: 18px;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.7);
-    strong {
-      font-weight: bold;
-      color: white;
+  #tasks.overlay {
+    &::after {
+      content: '';
+      background: rgba(0,0,0,0.7);
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      overflow: hidden;
     }
   }
-}
 
-.new_task_card {
-  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
-  z-index: -1;
-  width: 70%;
-  left: 15%;
-  transition: all 0.5s ease-out;
-  -webkit-transition: all 0.5s ease-out;
-  &.peep {
-    z-index: -1;
-    transform: translateY(-30px);
+  .logout-button {
+    z-index: 0;
+    margin-left: 1em;
   }
-  &.show {
-    z-index: 1;
-    transform: translateY(-30px);
+  .cancel-button {
+    margin-right: 2em;
   }
-}
 
-.tasks-container {
-  border-radius: 16px;
-  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
-  background-color: #ffffff;
-}
-
-.add-task,
-.hide-task {
-  right: 2em;
-  top: -2em;
-}
-
-.add-task:focus,
-.add-task:active,
-.add-task:hover {
-    filter: grayscale(20%);
-}
-
-.hide-task:focus,
-.hide-task:active,
-.hide-task:hover {
-  filter: brightness(1.5);
-}
-
-.card-list {
-  min-height: 96px;
-}
-
-/* Card Style */
-
-.task-card {
-  background-color: #f4f7f9;
-  border: solid 1px #eaeff2;
-  box-shadow: none;
-  outline: none;
-  .card-content {
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-right: 0;
+  .header {
+    -webkit-animation: slideInRight 1.5s 1;
+    animation: slideInRight 1.5s 1;
     p {
-      color: #8b9cab;
-      margin-right: 1em;
-    }
-  }
-  &.completed {
-    background-color: #f4f7f9;
-    border: solid 1px #eaeff2;
-    box-shadow: none;
-    border-left: 3px solid #33bdf6;
-    .card-content {
-      p {
-        color: #263d52;
+      font-size: 18px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.7);
+      strong {
+        font-weight: bold;
+        color: white;
       }
     }
   }
-}
+
+  .new_task_card {
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    z-index: -1;
+    width: 70%;
+    left: 15%;
+    transition: all 0.5s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+    &.peep {
+      z-index: -1;
+      transform: translateY(-30px);
+    }
+    &.show {
+      z-index: 1;
+      transform: translateY(-30px);
+    }
+  }
+
+  .tasks-container {
+    -webkit-animation: slideUpTop 1.5s 1;
+    animation: slideUpTop 1.5s 1;
+    border-radius: 16px;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+  }
+
+  .add-task,
+  .hide-task {
+    right: 2em;
+    top: -2em;
+  }
+
+  .add-task:focus,
+  .add-task:active,
+  .add-task:hover {
+      filter: grayscale(20%);
+  }
+
+  .hide-task:focus,
+  .hide-task:active,
+  .hide-task:hover {
+    filter: brightness(1.5);
+  }
+
+  .card-list {
+    margin: 0 !important;
+    min-height: 96px;
+  }
+
+  /* Card Style */
+
+  .task-card {
+    background-color: #f4f7f9;
+    border: solid 1px #eaeff2;
+    box-shadow: none;
+    outline: none;
+    .card-content {
+      padding-left: 10px;
+      padding-top: 10px;
+      padding-right: 0;
+      p {
+        color: #8b9cab;
+        margin-right: 1em;
+      }
+    }
+    &.completed {
+      background-color: #f4f7f9;
+      border: solid 1px #eaeff2;
+      box-shadow: none;
+      border-left: 3px solid #33bdf6;
+      .card-content {
+        p {
+          color: #263d52;
+        }
+      }
+    }
+  }
+
+  .secondary-bg {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    -webkit-animation: slideUpTop 1.5s 1;
+    animation: slideUpTop 1.5s 1;
+  }
 
 </style>
+
