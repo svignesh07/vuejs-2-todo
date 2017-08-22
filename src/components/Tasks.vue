@@ -15,12 +15,14 @@
             <div class="card new_task_card absolute" v-bind:class="{ peep: peep, show: show }">
               <div class="card-content">
                 <div class="input-field">
-                  <input id="new_task" type="text" class="validate" v-model="task.title" required="true">
-                  <label for="new_task" data-error="wrong" data-success="valid">Add new</label>
+                  <input id="new_task" type="text" class="validate" v-model="task.title" @focus="!hideNoTaskError()">
+                  <label for="new_task">Add new</label>
                 </div>
-
-                  <input type="submit" class="waves-effect btn-flat right noPadding blue-text" value="Add">
-                  <input type="button" class="waves-effect btn-flat right noPadding cancel-button" v-on:click="show=!show" value="Cancel">
+                <span class="notask-error red-text hide">
+                  <i class="material-icons">error_outline</i>Enter Task
+                </span>
+                <input type="submit" class="waves-effect btn-flat right noPadding blue-text" value="Add">
+                <input type="button" class="waves-effect btn-flat right noPadding cancel-button" v-on:click="show=!show" value="Cancel">
                 <br>
               </div>
             </div>
@@ -85,8 +87,12 @@ export default {
         this.$router.push({path: '/'})
       }
     },
+    hideNoTaskError () {
+      document.querySelector('.notask-error').classList.add('hide')
+    },
     addTask () {
       if (!this.task.title) {
+        document.querySelector('.notask-error').classList.remove('hide')
       } else {
         let newtask = {
           userId: this.user.id,
@@ -235,8 +241,14 @@ export default {
     bottom: 0;
     width: 100%;
     z-index: -1;
-    -webkit-animation: slideUpTop 1.5s 1;
-    animation: slideUpTop 1.5s 1;
+    animation: fadeIn 1.5s linear;
+  }
+
+  .notask-error {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 40%;
   }
 
 </style>

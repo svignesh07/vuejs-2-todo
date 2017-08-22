@@ -11,7 +11,7 @@
           <form v-on:submit.prevent="authenticateUser">
             <div class="card-content">
                 <div class="input-field">
-                  <input id="username" type="text" v-model="username"  @focus="!hideUserNameError()">
+                  <input id="username" type="text" v-model="username" @focus="!hideUserNameError()">
                   <label class="active" for="username">Username</label>
                 </div>
                 <span class="username-error red-text hide">
