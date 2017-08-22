@@ -45,7 +45,9 @@ export default {
           if (user) {
             // Store the currentUser object in LocalStorage
             localStorage.setItem('currentUser', JSON.stringify(user))
-            console.log(localStorage.getItem('currentUser'))
+
+            // Redirect to /tasks
+            this.$router.push({path: '/tasks'})
           }
         })
       }
