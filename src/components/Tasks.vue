@@ -122,13 +122,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  /* Variables */
-  $sky-blue: #33bdf6;
-  $dark-text: #263d52;
-  $light-text: #8b9cab;
-  $light-border: #eaeff2;
-  $light-background: #f4f7f9;
-
+  /* Import Variables */
+  @import '../assets/stylesheets/variables.scss';
 
   #tasks.overlay {
     &::after {

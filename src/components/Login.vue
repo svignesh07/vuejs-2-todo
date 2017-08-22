@@ -84,7 +84,7 @@ export default {
   .card {
     margin-top: 50px;
     border-radius: 16px;
-    background-color: #ffffff;
+    background-color: #fff;
     box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
   }
 
