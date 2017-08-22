@@ -18,9 +18,6 @@ Steps 1, 2, and 3 are mandatory for the functioning of the app.
 
 # run unit tests
 npm run unit
-
-# run all tests
-npm test
 ```
 
 Some Test Usernames to login into the app -

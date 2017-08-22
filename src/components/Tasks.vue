@@ -62,8 +62,8 @@ export default {
     return {
       user: JSON.parse(localStorage.getItem('currentUser')),
       task: {
-        title: null,
-        userId: 1
+        title: '',
+        userId: null
       },
       tasks: [],
       peep: false,

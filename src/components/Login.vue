@@ -32,7 +32,7 @@ export default {
   name: 'login',
   data () {
     return {
-      username: null,
+      username: '',
       baseUrl: 'http://localhost:3000/'
     }
   },
