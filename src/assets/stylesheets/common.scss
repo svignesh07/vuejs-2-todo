@@ -1,0 +1,59 @@
+/* Flex classes */
+.flex-box {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -ms-flex-pack: justify;
+}
+
+.flex-wrap {
+  flex-wrap : wrap;
+  -webkit-flex-wrap : wrap;
+  -ms-flex-wrap: wrap;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+  flex: 1;
+}
+
+/* Utility classes */
+
+.noPadding {
+  padding: 0;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+/* MaterializeCSS overrides */
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #33bdf6;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #33bdf6;
+  box-shadow: 0 1px 0 0 #33bdf6;
+}
+
+.btn-flat:hover,
+.btn-flat:active,
+.btn-flat:focus {
+  background: none;
+  font-weight: bold;
+}
