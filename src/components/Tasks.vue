@@ -2,14 +2,18 @@
   <div id="tasks" v-bind:class="{ overlay: show }">
     <img class="secondary-bg" src="../assets/images/lightgraybg.png" alt="secondary-bg">
     <div class="row">
+      <div class="header username flex-box flex-vertical-end justify-content-flex-end text-right noMargin">
+        <p class="flex-box flex-direction-column flex-vertical-end">
+          <span>Hey <strong>{{user.name}}!</strong></span>
+          <a class="btn-flat noPadding yellow-text logout-button" v-on:click="logout()">logout</a>
+        </p>
+      </div>
       <div class="col offset-m2 m8">
         <div class="header">
-          <p>Hey
-            <strong>{{user.name }}!</strong><br> You have <strong>{{incomplete_tasks}}</strong> incomplete tasks for today.
-            <a class="btn-flat noPadding yellow-text logout-button" v-on:click="logout()">logout</a>
+          <p>
+            You have <strong>{{incomplete_tasks}}</strong> incomplete tasks for today.
           </p>
         </div>
-        <br>
         <div class="card tasks-container">
           <form v-on:submit.prevent="addTask">
             <div class="card new_task_card absolute" v-bind:class="{ peep: peep, show: show }">
@@ -158,6 +162,9 @@ export default {
   .header {
     -webkit-animation: slideInRight 1.5s 1;
     animation: slideInRight 1.5s 1;
+    &.username {
+      margin-right: 3em;
+    }
     p {
       font-size: 18px;
       font-weight: 300;
